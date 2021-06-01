@@ -8,8 +8,9 @@ namespace Parduotuve.Profiles
     {
         public ReviewsProfile()
         {
-            CreateMap<Review, ReviewReadDto>();
-            CreateMap<ReviewReadDto, Review>();
+            CreateMap<ReviewReadDto, Review>().ReverseMap();
+            CreateMap<ReviewUpdateDto, Review>().ReverseMap();
+            CreateMap<ReviewCreateDto, Review>().ReverseMap();
         }
     }
 }

@@ -36,7 +36,8 @@ namespace Parduotuve
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddScoped<IShopRepo, SqlShopRepo>();
+            services.AddScoped<IReviewRepository, SqlShopRepo>();
+            services.AddScoped<IItemRepository, SqlShopRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

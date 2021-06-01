@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Parduotuve.Models;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Parduotuve.Dtos
 {
@@ -9,5 +12,7 @@ namespace Parduotuve.Dtos
 
         [Required]
         public string ItemInfo { get; set; }
+
+        public List<ReviewUpdateDto> Reviews { get; set; }
     }
 }

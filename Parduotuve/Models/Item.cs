@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Parduotuve.Models
 {
@@ -12,5 +14,8 @@ namespace Parduotuve.Models
 
         [Required]
         public string ItemInfo { get; set; }
+
+        [InverseProperty("Item")]
+        public ICollection<Review> Reviews { get; set; }
     }
 }

@@ -7,6 +7,8 @@ namespace Parduotuve.Dtos
     {
 
         [Required]
+        public int Id { get; set; }
+        [Required]
         [RegularExpression(@"^[1-5]$", ErrorMessage = "Score can only be a number 1-5.")]
         public int Score { get; set; }
 
