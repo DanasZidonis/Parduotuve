@@ -25,8 +25,6 @@ namespace Parduotuve.Data
                 throw new ArgumentNullException(nameof(rvw));
             }
 
-            rvw.Item = _context.Item.FirstOrDefault(p => p.Id == rvw.Id);
-
             _context.Add(rvw);
         }
 

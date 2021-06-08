@@ -11,6 +11,7 @@ namespace Parduotuve.Profiles
             CreateMap<ReviewReadDto, Review>().ReverseMap();
             CreateMap<ReviewUpdateDto, Review>().ReverseMap();
             CreateMap<ReviewCreateDto, Review>().ReverseMap();
+            CreateMap<ReviewCreateDto2, Review>().ReverseMap();
         }
     }
 }

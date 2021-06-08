@@ -15,17 +15,23 @@ namespace Parduotuve.Controllers
         private IReviewRepository _repository;
         private IMapper _mapper;
 
+        public ReviewsController(IReviewRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         [HttpPost]
-        public ActionResult<ReviewReadDto> CreateReviewByItem([FromBody] ReviewCreateDto rvw)
+        public ActionResult<ReviewCreateDto2> CreateReviewByItem([FromBody] ReviewCreateDto2 rvw)
         {
 
             var reviewModel = _mapper.Map<Review>(rvw);
             _repository.CreateReviewByItem(reviewModel);
             _repository.SaveChanges();
 
-            var reviewReadDto = _mapper.Map<ReviewReadDto>(reviewModel);
+            var reviewCreateDto2 = _mapper.Map<ReviewCreateDto2>(reviewModel);
 
-            return CreatedAtRoute(nameof(GetReviewById), new { Id = reviewReadDto.Id }, reviewReadDto);
+            return Ok(reviewCreateDto2);
         }
 
         [HttpGet("{id}", Name = "GetReviewById")]
