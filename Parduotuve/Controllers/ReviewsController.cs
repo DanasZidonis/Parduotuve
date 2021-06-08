@@ -22,16 +22,16 @@ namespace Parduotuve.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ReviewCreateDto2> CreateReviewByItem([FromBody] ReviewCreateDto2 rvw)
+        public ActionResult<ReviewCreateDto> CreateReviewByItem([FromBody] ReviewCreateDto rvw)
         {
 
             var reviewModel = _mapper.Map<Review>(rvw);
             _repository.CreateReviewByItem(reviewModel);
             _repository.SaveChanges();
 
-            var reviewCreateDto2 = _mapper.Map<ReviewCreateDto2>(reviewModel);
+            var reviewCreateDto = _mapper.Map<ReviewCreateDto>(reviewModel);
 
-            return Ok(reviewCreateDto2);
+            return Ok(reviewCreateDto);
         }
 
         [HttpGet("{id}", Name = "GetReviewById")]
